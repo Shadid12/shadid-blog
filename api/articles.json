@@ -2,7 +2,8 @@
     "articles": {
         "javaScript-callbacks-vs-promise-vs-observable": {
             "img": "javaScript-callbacks-vs-promise-vs-observable.png",
-            "title": "JavaScript Callbacks vs Promise vs Observable in Plain English"
+            "title": "JavaScript Callbacks vs Promise vs Observable in Plain English",
+            "body": ""
         }
     }
 }

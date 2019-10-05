@@ -65,8 +65,8 @@ const Home = () => {
       <Nav />
 
       <div>
-        <Grid container spacing={3}>
-        <Grid item sm={4} >
+        <Grid container spacing={12}>
+        <Grid item sm={6} xs={12}>
           <Typography variant="h5" component="h3" className={classes.root}>
             Recent Articles
           </Typography>
