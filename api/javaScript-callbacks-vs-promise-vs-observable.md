@@ -5,7 +5,7 @@ If you are a web developer starting out you have most certainly heard of these t
 
 Let’s say we are writing a front end application that fetches **apples** from a server. However, let’s assume the response we get back is delayed by 2 seconds or so. We mimic this scenario with the code below.
 
-```js
+```javascript
 const getApple = () => {
   setTimeout(() => {
     return { "name": "Macintosh" }
@@ -20,7 +20,7 @@ So this will not work because out variable myApple is assigned and executed righ
 
 To deal with such situations callbacks were introduced. The code below solves this problem using callbacks
 
-```js
+```javascript
 const getApple = (b) => {
   setTimeout(() => {
     b({name: 'Macintosh'});
@@ -38,7 +38,7 @@ This idea of callbacks were very popular and it is still getting used a lot.
 However, when building more complex applications we find ourselves in a callback loop
 also know as the callback hell. Consider this example for instance.
 
-```js
+```javascript
 const bt = document.querySelector("button");
 const result = document.getElementById("k")
 
@@ -70,7 +70,7 @@ bt.addEventListener("click", () => {
 ```
 Nesting callbacks can make applications very hard to debug and maintain clean code.
 To solve these problems promises were introduced. Let’s take a look at the same example with promises.
-```js
+```javascript
 const firstPromise = callBack => {
   result.textContent = "First promise loading";
   return new Promise((resolve, reject) => {
@@ -106,7 +106,7 @@ We can handle errors with ease, too! Simply add a **catch()** block to your chai
 
 Consider the following example for instance
 
-```js
+```javascript
 
 checkAuth()
   .then(authStatus => {
@@ -124,7 +124,7 @@ Although relatively new to the JavaScript world, RxJS Observable already gained 
 There are good reasons for that. The main reason however is working with streams of data. If you are working with streams of data instead of single values RxJS is the go to library. The data source (for example a button getting clicked) may emit multiple values. It could also only emit one — we don’t know! Or maybe we do even know that we’ll only receive one data object (e.g. HTTP request + response) — this can still be treated as a stream of event(s) and hence we may use RxJS Observable.
 Let’s do the same example with observable
 
-```js
+```javascript
 const bt = document.querySelector("button");
 const result = document.getElementById("k")
 
