@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,13 +38,14 @@ const useStyles = makeStyles(theme => ({
 
 const Home = () => {
   const classes = useStyles()
+  const router = useRouter()
 
   const [posts, setPosts] = useState([
     {
-      id: '1',
-      img: '/static/assets/1.jpg',
-      title: 'Article number 1',
-      body: 'Short Summary of the existing article'
+      id: 'javaScript-callbacks-vs-promise-vs-observable',
+      img: '/static/assets/javaScript-callbacks-vs-promise-vs-observable.png',
+      title: 'JavaScript Callbacks vs Promise vs Observable in Plain English',
+      body: 'A brief comparison with examples'
     },
     {
       id: '2',
@@ -52,6 +54,10 @@ const Home = () => {
       body: 'Short Summary of the existing article'
     }
   ]);
+
+  const goToArticle = (id) => {
+    router.push(`/article?id=${id}`)
+  }
 
   return(
     <div>
@@ -76,7 +82,12 @@ const Home = () => {
                     <Typography component="p" className={classes.p}>
                       {post.body}
                     </Typography>
-                    <Button variant="contained" color="primary" className={classes.button}>
+                    <Button 
+                      variant="contained" 
+                      color="primary" 
+                      className={classes.button}
+                      onClick={() => {goToArticle(post.id)} }
+                    >
                       Read More
                     </Button>
                   </div>
