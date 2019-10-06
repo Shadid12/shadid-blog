@@ -1,7 +1,7 @@
 # JavaScript Callbacks vs Promise vs Observable in Plain English
 [![N|Solid](https://miro.medium.com/max/1170/1*0h6I1sAxr3blJhPuWuwl3A.png)](https://nodesource.com/products/nsolid)
 
-If you are a web developer starting out you have most certainly heard of these terms. Before we get to compare these concepts let’s talk about why would we need these at the first place.
+If you are a web developer starting out you have most certainly heard of these terms. Before we get to compare these concepts let’s talk about why we would need these in the first place.
 
 Let’s say we are writing a front end application that fetches **apples** from a server. However, let’s assume the response we get back is delayed by 2 seconds or so. We mimic this scenario with the code below.
 
@@ -34,7 +34,7 @@ getApple((apple) => {
 we now pass a callback function to **getApple()**. Inside **getApple()**,
 this callback function is received as a normal function argument and executed once the timer completes.
 
-This idea of callbacks were very popular and it is still getting used a lot.
+This idea of callbacks was very popular and is still getting used a lot today.
 However, when building more complex applications we find ourselves in a callback loop
 also know as the callback hell. Consider this example for instance.
 
@@ -68,7 +68,7 @@ bt.addEventListener("click", () => {
   })
 });
 ```
-Nesting callbacks can make applications very hard to debug and maintain clean code.
+Nesting callbacks can make applications very hard to debug and also make it difficult to maintain clean code.
 To solve these problems promises were introduced. Let’s take a look at the same example with promises.
 
 ```javascript
@@ -104,7 +104,7 @@ bt.addEventListener("click", () => {
 Promises give us a much cleaner syntax, they are easy for error handling and easy to read and maintain. Once we start chaining more async operations the process with promises gets much easier compare to callbacks.
 Inside **then()**, you can simply return the result of a function call.
 
-We can handle errors with ease, too! Simply add a **catch()** block to your chain and it will catch any errors thrown by any of your promises.
+We can handle errors with ease too! Simply add a **catch()** block to your chain and it will catch any errors thrown by any of your promises.
 
 Consider the following example for instance
 
@@ -122,8 +122,7 @@ checkAuth()
   });
 ```
 Now what about RxJS Observable ?
-Although relatively new to the JavaScript world, RxJS Observable already gained quite some ground.
-There are good reasons for that. The main reason however is working with streams of data. If you are working with streams of data instead of single values RxJS is the go to library. The data source (for example a button getting clicked) may emit multiple values. It could also only emit one — we don’t know! Or maybe we do even know that we’ll only receive one data object (e.g. HTTP request + response) — this can still be treated as a stream of event(s) and hence we may use RxJS Observable.
+Although relatively new to the JavaScript world, RxJS Observable already gained quite some ground; there are good reasons for that. The main reason however is working with streams of data. If you are working with streams of data instead of single values RxJS is the go to library. The data source (for example a button getting clicked) may emit multiple values, or it could only emit one — we don’t know! Or maybe we do know that we’ll only receive one data object (e.g. HTTP request + response) — this can still be treated as a stream of event(s) hence we may use RxJS Observable.
 Let’s do the same example with observable
 
 ```javascript
