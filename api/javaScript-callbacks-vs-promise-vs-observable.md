@@ -70,6 +70,7 @@ bt.addEventListener("click", () => {
 ```
 Nesting callbacks can make applications very hard to debug and maintain clean code.
 To solve these problems promises were introduced. Let’s take a look at the same example with promises.
+
 ```javascript
 const firstPromise = callBack => {
   result.textContent = "First promise loading";
@@ -98,6 +99,7 @@ bt.addEventListener("click", () => {
       }
   })
 });
+
 ```
 Promises give us a much cleaner syntax, they are easy for error handling and easy to read and maintain. Once we start chaining more async operations the process with promises gets much easier compare to callbacks.
 Inside **then()**, you can simply return the result of a function call.

@@ -1,34 +1,39 @@
 import React, { useState, useEffect } from 'react'
 import Nav from '../components/Nav'
 import { useRouter } from 'next/router'
-import articles from '../api/articles'
-import ReactMarkdown from 'react-markdown'
+import Markdown from '../components/Markdown'
+import { makeStyles } from '@material-ui/core/styles'
+
+
 import art1 from '../api/javaScript-callbacks-vs-promise-vs-observable.md'
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import art2 from '../api/topics-to-learn-to-elevate-your-javaScript-mastery.md'
 
-
-class CodeBlock extends React.PureComponent {
-  
-    render() {
-      const { language, value } = this.props;
-  
-      return (
-        <SyntaxHighlighter language='javascript'>
-          {value}
-        </SyntaxHighlighter>
-      );
+const useStyles = makeStyles(theme => ({
+    articles: {
+      padding: '25px'
     }
-  }
+}));
 
 const Article = () => {
     const router = useRouter()
+    const classes = useStyles()
 
     const [currentArticle, setArticle] = useState(null)
 
 
     useEffect(() => {
         const { id } = router.query
-        setArticle(articles.articles[id])
+        switch(id) {
+            case 'javaScript-callbacks-vs-promise-vs-observable':
+                setArticle(art1)
+                break;
+            case 'topics-to-learn-to-elevate-your-javaScript-mastery':
+                setArticle(art2)
+                break;
+            default:
+                break;
+            
+        }
     });
 
     if(!currentArticle) {
@@ -39,12 +44,10 @@ const Article = () => {
         <div>
             <title>Shadid</title>
             <Nav />
-            <div className=''>
-                <ReactMarkdown source={art1} 
-                    renderers={{
-                        code: CodeBlock,
-                    }}
-                />
+            <div className={classes.articles}>
+                <Markdown>
+                    {currentArticle}
+                </Markdown>
             </div>
         </div>
     )

@@ -48,10 +48,10 @@ const Home = () => {
       body: 'A brief comparison with examples'
     },
     {
-      id: '2',
-      img: '/static/assets/1.jpg',
-      title: 'Article number 2',
-      body: 'Short Summary of the existing article'
+      id: 'topics-to-learn-to-elevate-your-javaScript-mastery',
+      img: '/static/assets/js.jpg',
+      title: 'Topics to Learn to Elevate Your JavaScript Mastery',
+      body: 'What really makes you a javascript rockstar'
     }
   ]);
 
