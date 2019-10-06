@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
     root: {
+      marginTop: '50px',
       flexGrow: 1,
       paddingLeft: '25px'
     },
@@ -33,7 +34,7 @@ const About = () => {
                         <img src='/static/assets/1.jpg' className={classes.img}/>
                     </Grid>
                     <Grid item xs={6}>
-                        <Typography variant="overline" className={classes.greet}>hi, there...</Typography>
+                        <Typography variant="overline" className={classes.greet}>Hi there...</Typography>
                         <Typography variant="body1">
                         Welcome to my blog. I am Shadid, a software craftsman with a passion for web applications, everything computer science and video games :).
                         I love to  learn..I am continuously learning and seeking to explore new frontiers. Welcome to my world where we will solve interesting problems together and 

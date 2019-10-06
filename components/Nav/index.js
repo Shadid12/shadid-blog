@@ -8,6 +8,7 @@ import Router from 'next/router'
 import Slide from '@material-ui/core/Slide'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+import AppBar from '@material-ui/core/AppBar';
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -21,6 +22,13 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         justifyContent: 'space-between',
         borderBottom: '1px solid rgba(0, 0, 0, 0.12)'
+    },
+    appBar: {
+        backgroundColor: '#304ffe'
+    },
+    btn: {
+        color: 'white',
+        textTransform: 'none'
     }
 }));
 
@@ -54,11 +62,13 @@ const Nav = (props) => {
             <Grid item xs={12} >
                 <CssBaseline />
                 <HideOnScroll {...props}>
+                <AppBar className={classes.appBar}>
                     <Toolbar className={classes.main}>
-                        <Button onClick={goToHome}>Home</Button>
+                        <Button onClick={goToHome} className={classes.btn}>Home</Button>
                         <Typography variant="h5">Shadid's Blog</Typography>
-                        <Button onClick={goToAbout}>About</Button>
+                        <Button onClick={goToAbout} className={classes.btn}>About</Button>
                     </Toolbar>
+                </AppBar>
                 </HideOnScroll>
             </Grid>
         </Grid>
