@@ -5,6 +5,9 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Toolbar from '@material-ui/core/Toolbar'
 import Router from 'next/router'
+import Slide from '@material-ui/core/Slide'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 
 const useStyles = makeStyles(theme => ({
     nav: {
@@ -21,7 +24,22 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const Nav = () => {
+
+function HideOnScroll(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({ target: window ? window() : undefined });
+  
+    return (
+      <Slide appear={false} direction="down" in={!trigger}>
+        {children}
+      </Slide>
+    );
+  }
+
+const Nav = (props) => {
     const classes = useStyles()
 
     const goToAbout = () => {
@@ -34,11 +52,14 @@ const Nav = () => {
         <div className={classes.nav}>
         <Grid container spacing={3}>
             <Grid item xs={12} >
-                <Toolbar className={classes.main}>
-                    <Button onClick={goToHome}>Home</Button>
-                    <Typography variant="h5">Shadid's Blog</Typography>
-                    <Button onClick={goToAbout}>About</Button>
-                </Toolbar>
+                <CssBaseline />
+                <HideOnScroll {...props}>
+                    <Toolbar className={classes.main}>
+                        <Button onClick={goToHome}>Home</Button>
+                        <Typography variant="h5">Shadid's Blog</Typography>
+                        <Button onClick={goToAbout}>About</Button>
+                    </Toolbar>
+                </HideOnScroll>
             </Grid>
         </Grid>
         </div>
