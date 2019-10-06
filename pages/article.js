@@ -10,8 +10,11 @@ import art2 from '../api/topics-to-learn-to-elevate-your-javaScript-mastery.md'
 
 const useStyles = makeStyles(theme => ({
     articles: {
-      padding: '25px'
-    }
+      marginTop: '100px',
+      padding: '25px',
+      maxWidth: '70%',
+      margin: 'auto'
+    },
 }));
 
 const Article = () => {

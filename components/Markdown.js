@@ -9,6 +9,9 @@ const styles = theme => ({
   listItem: {
     marginTop: theme.spacing(1),
   },
+  img: {
+    maxWidth: '65%'
+  }
 });
 
 const options = {
@@ -42,6 +45,11 @@ const options = {
                 </SyntaxHighlighter>
             )
         })
+    },
+    img: {
+      component: withStyles(styles)(({ classes, ...props }) => (
+        <img {...props} className={classes.img}/>
+      ))
     }
   },
 };
