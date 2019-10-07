@@ -6,35 +6,9 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { useRouter } from 'next/router'
+import { indexStyles } from './styles/index'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    marginLeft: '25px',
-    marginRight: '25px',
-    padding: '20px',
-    display: 'flex'
-  },
-  paper: {
-    marginBottom: '10px',
-    backgroundColor: '#f06292'
-  },
-  img: {
-    height: '50px',
-    marginTop: '20px',
-    borderRadius: '50%',
-    paddingRight: '10px'
-  },
-  button: {
-    margin: theme.spacing(1),
-    textTransform: 'none'
-  },
-  p: {
-    backgroundColor: '#40c4ff',
-    padding: '5px',
-    borderRadius: '5px'
-  }
-}));
+const useStyles = makeStyles(indexStyles());
 
 const Home = () => {
   const classes = useStyles()
