@@ -13,7 +13,7 @@
     "@zeit/next-css": "^1.0.1",
     "github-markdown-css": "^3.0.1",
     "markdown-to-jsx": "^6.10.3",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "next": "9.0.7",
     "raw-loader": "^3.1.0",
     "react": "16.10.1",
